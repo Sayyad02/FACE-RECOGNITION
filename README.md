@@ -209,9 +209,9 @@ Visual Output (Webcam Window):
 A window titled "Video" appears, showing the live feed from your webcam.
 
 Scenario A: Recognized Face:
-
 If the system recognizes a face that's in the known_faces directory (and therefore in the database), it will draw a green rectangle around the face.
 Below the rectangle, the person's name (as you entered it when adding the face) will be displayed in white text. For example:
+
 +---------------------+
 |                     |
 |   (Webcam Feed)    |
@@ -221,10 +221,12 @@ Below the rectangle, the person's name (as you entered it when adding the face) 
 |       John Doe      |  <-- White Text
 |                     |
 +---------------------+
-Scenario B: Unknown Face:
 
+
+Scenario B: Unknown Face:
 If the system detects a face but doesn't recognize it (it's not in the database), it will draw a red rectangle around the face.
 Below the rectangle, it will display the text "Unknown" in white.
+
 +---------------------+
 |                     |
 |   (Webcam Feed)    |
@@ -234,11 +236,14 @@ Below the rectangle, it will display the text "Unknown" in white.
 |       Unknown       |  <-- White Text
 |                     |
 +---------------------+
+
+
 Scenario C: No Face Detected:
-
 If no faces are detected, the webcam feed will simply be displayed without any rectangles or text.
-Scenario D: Multiple Faces:
 
+
+Scenario D: Multiple Faces:
 The system can handle multiple faces simultaneously. Each detected face will have a rectangle (green for known, red for unknown) and the corresponding label. The rectangles and labels will track the faces as they move within the frame.
+
 
 This README provides a comprehensive overview of the project, its functionality, and how to use it.  It should be easy for anyone to understand and get started with the face recognition system.
