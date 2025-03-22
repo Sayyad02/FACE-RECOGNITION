@@ -68,13 +68,15 @@ python src/main.py --add_face --image_path <path_to_image> --name "<person's_nam
 --add_face: Tells the script to add a new face.
 --image_path: The path to the image file of the person you want to add (e.g., known_faces/John Doe.jpg). Important: This image should contain only one face, and it should be a clear, well-lit image of the person.
 --name: The name of the person in the image (e.g., "John Doe").
+
 Example:
 
 Bash
 
 python src/main.py --add_face --image_path known_faces/Jane_Smith.jpg --name "Jane Smith"
 Important: Place the images of known faces in the known_faces directory, and name each file after the person in the image (e.g., John_Doe.jpg).
-2. Running Face Recognition (Webcam)
+
+### 2. Running Face Recognition (Webcam)
 To start the face recognition system using your webcam:
 
 Bash
@@ -85,7 +87,8 @@ The system will attempt to recognize faces in real-time.
 Recognized faces will be marked with a green bounding box and their name.
 Unknown faces will be marked with a red bounding box and the label "Unknown".
 Press q to quit.
-3. Updating an Existing Face
+
+### 3. Updating an Existing Face
 If you have a better image of a person already in the database, you can update their face encoding:
 
 Bash
@@ -94,12 +97,14 @@ python src/main.py --update_face --image_path <path_to_new_image> --name "<perso
 --update_face: Indicates that you want to update an existing face.
 --image_path: The path to the new image of the person.
 --name: The name of the person whose face you are updating.
+
 Example:
 
 Bash
 
 python src/main.py --update_face --image_path known_faces/Jane_Smith_New.jpg --name "Jane Smith"
-4. Deleting a Face
+
+### 4. Deleting a Face
 To remove a face from the database:
 
 Bash
@@ -107,12 +112,15 @@ Bash
 python src/main.py --delete_face --name "<person's_name>"
 --delete_face: Tells the program to delete a face entry.
 --name: The name of the person to remove.
+
 Example:
 
 Bash
 
 python src/main.py --delete_face --name "Jane Smith"
+
 Code Overview
+
 config.py
 This file stores configuration settings:
 
@@ -121,6 +129,7 @@ KNOWN_FACES_DIR: The path to directory containing known face (default: known_fac
 TOLERANCE: The threshold for face distance comparison (default: 0.6). Lower values are stricter.
 MODEL: The face detection model to use: "hog" (faster, less accurate) or "cnn" (slower, more accurate).
 utils.py
+
 This file contains helper functions:
 
 load_image(image_path): Loads an image from the given path, raising errors if the file is not found or cannot be opened.
@@ -128,6 +137,7 @@ display_image(image, title="Image"): Displays an image in a window.
 convert_bgr_to_rgb(image): Converts an image from BGR (OpenCV's default) to RGB (used by face_recognition).
 resize_frame(frame, scale_factor): Resizes a frame by a given scale factor.
 database.py
+
 This file handles interactions with the SQLite database:
 
 adapt_array(arr) and convert_array(text): Functions to convert NumPy arrays (face encodings) to and from binary strings for database storage.
@@ -137,6 +147,7 @@ get_all_faces_from_db(): Retrieves all face encodings and names from the databas
 delete_face_from_db(name): Deletes a face from the database by name.
 update_face_in_db(name, new_encoding): Updates the encoding for an existing face.
 face_recognition_system.py
+
 This file contains the main FaceRecognitionSystem class:
 
 __init__(): Initializes the system, loads configuration, creates the database (if it doesn't exist), and loads known faces from the database.
@@ -150,8 +161,11 @@ main.py
 This is the entry point of the application:
 
 main():
+
 Parses command-line arguments using argparse.
+
 Handles --add_face, --update_face and --delete_face operations by calling the appropriate methods of the FaceRecognitionSystem class.
+
 If no add/update/delete arguments are provided, it starts the webcam-based face recognition loop:
 Initializes the webcam.
 Reads frames from the webcam.
@@ -159,6 +173,7 @@ Calls recognize_faces to detect and recognize faces.
 Calls draw_boxes_and_labels to draw results on the frame.
 Displays the frame.
 Exits when the 'q' key is pressed.
+
 Troubleshooting
 ModuleNotFoundError: Ensure your virtual environment is activated and all required packages are installed (pip install -r requirements.txt).
 Webcam Issues: Verify your webcam is working and you're using the correct camera index (usually 0) in cv2.VideoCapture(0).
@@ -169,7 +184,7 @@ I am unable to create or manipulate images. I am a text-based model and do not h
 
 Here's a textual description of what the program's output would look like in different situations, along with descriptions of the command-line interactions:
 
-1. Adding a Face (Command Line):
+### 1. Adding a Face (Command Line):
 
 Command:
 
@@ -182,7 +197,7 @@ Face 'John Doe' added to the database.
 Loaded 1 faces from the database.
 (The "Loaded X faces" number will increment as you add more faces.)  There is no visual output other than this text.  The program adds the face data to the data/faces.db database file.
 
-2. Running Face Recognition (Webcam):
+### 2. Running Face Recognition (Webcam):
 
 Command:
 
