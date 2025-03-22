@@ -6,21 +6,20 @@ This project implements a face recognition system using Python, OpenCV, face_rec
 
 The project is organized as follows:
 
-ace_recognition_project/
-├── src/                                # Source code
-│   ├── init.py                         # Package marker
-│   ├── face_recognition_system.py      # Main face recognition class
-│   ├── utils.py                        # Helper functions
-│   ├── database.py                     # SQLite database interactions
-│   ├── main.py                         # Entry point
-│   └── config.py                       # Configuration settings
-├── known_faces/                        # Images of known faces (one face per image, named after the person)
-├── test_images/                        # (Optional) Images for testing
-├── data/                               # Database storage
-│   └── faces.db                        # SQLite database (auto-created)
-├── venv/                               # (Recommended) Virtual environment
-├── requirements.txt                    # Python dependencies
-└── README.md                           # This file
+face_recognition_project/
+├── src/
+│   ├── __init__.py          (Marks the directory as a Python package)
+│   ├── face_recognition_system.py    (Main class for face recognition)
+│   ├── utils.py             ( Helper functions (image loading, etc.))
+│   ├── database.py          (Database interaction (SQLite))
+│   ├── main.py              (Entry point of the application)
+│   └── config.py            (Configuration settings)
+├── known_faces/          (Put your known face images here)
+├── test_images/          (Put your test images here)
+├── data/                 (The faces.db database will be created here)
+├── venv/                 (Your virtual environment - created, but not committed to Git)
+├── requirements.txt      (List of required Python packages)
+└── README.md             (This file)
 
 ## Setup and Installation
 
